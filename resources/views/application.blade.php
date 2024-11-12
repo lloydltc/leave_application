@@ -2,6 +2,6 @@
 @section('content')
     <div>
 
-        @livewire('admin.show-applications')
+        @livewire('show-applications')
     </div>
 @endsection

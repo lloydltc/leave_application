@@ -2,12 +2,15 @@
 
 namespace App\Livewire;
 
+use App\Models\LeaveApplication;
 use Livewire\Component;
 
 class ShowApplications extends Component
 {
     public function render()
     {
-        return view('livewire.show-applications');
+
+        $applications = LeaveApplication::all();
+        return view('livewire.show-applications', compact('applications'));
     }
 }

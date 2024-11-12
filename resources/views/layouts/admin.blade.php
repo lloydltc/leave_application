@@ -112,15 +112,6 @@ $employee = \App\Models\Employee::first()
 
                 <div class="navbar-container container-fluid">
                     <ul class="nav-left">
-                        <li class="header-search">
-                            <div class="main-search morphsearch-search">
-                                <div class="input-group">
-                                    <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
-                                    <input type="text" class="form-control">
-                                    <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
-                                </div>
-                            </div>
-                        </li>
                         <li>
                             <a href="#!" onclick="javascript:toggleFullScreen()">
                                 <i class="feather icon-maximize full-screen"></i>
@@ -187,7 +178,7 @@ $employee = \App\Models\Employee::first()
 
 
                             <li class="">
-                                <a href="{{route('home')}}">
+                                <a href="{{route('showApplications')}}">
                                     <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
                                     <span class="pcoded-mtext">Applications</span>
                                 </a>

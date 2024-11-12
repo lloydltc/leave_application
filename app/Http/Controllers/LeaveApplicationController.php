@@ -13,7 +13,8 @@ class LeaveApplicationController extends Controller
     public function index(){
         $leaveTypes = LeaveType::all();
 
-        return view('dashboard', compact('leaveTypes'));
+
+        return view('dashboard', compact('leaveTypes','results'));
 
     }
 
@@ -28,6 +29,41 @@ class LeaveApplicationController extends Controller
         return redirect('/')->with('success', 'Leave Application has been created');
 
 
+    }
+
+    public function showApplications(){
+
+        return view('application');
+    }
+
+    public function approve($id)
+    {
+        $application = LeaveApplication::find($id);
+        $application->status = 'Approved';
+        $application->save();
+        return redirect('/leave-applications')->with('success', 'Leave Application has been approved');
+    }
+    public function reject($id)
+    {
+        $application = LeaveApplication::find($id);
+        $application->status = 'Rejected';
+        $application->save();
+        return redirect('/leave-applications')->with('success', 'Leave Application has been rejected');
+    }
+
+    public function cancelled($id)
+    {
+        $application = LeaveApplication::find($id);
+        $application->status = 'Cancelled';
+        $application->save();
+        return redirect('/')->with('success', 'Leave Application has been cancelled');
+
+    }
+
+    public function search(Request $request) {
+        $query = $request->input('search');
+        $results = LeaveApplication::where('employee_id', 'LIKE', "%{$query}%")->get();
+        return view('dashboard', compact('results'));
     }
 
 }
