@@ -22,7 +22,8 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Leave Type</label>
                             <div class="col-sm-10">
-                                <select class="js-example-placeholder-multiple-cat col-sm-12 select2-hidden-accessible" multiple="multiple" name="categories[]" tabindex="-1" aria-hidden="true">
+                                <select class="js-example-placeholder-multiple-cat col-sm-12 select2-hidden-accessible" name="leave_type" tabindex="-1" aria-hidden="true">
+
                                     @foreach ($leaveTypes as $type )
                                         <option value="{{$type->id}}">{{$type->name}}</option>
                                     @endforeach

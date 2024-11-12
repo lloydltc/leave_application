@@ -203,7 +203,14 @@ $employee = \App\Models\Employee::first()
                             <div class="page-wrapper">
 
                                 <div class="page-body">
-
+                                    @if(session('success'))
+                                    <div class="alert alert-success icons-alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <i class="icofont icofont-close-line-circled"></i>
+                                        </button>
+                                        <p><strong>Success!</strong>  {{ session('success') }}</p>
+                                    </div>
+                                    @endif
                                     @yield('content')
                                 </div>
                             </div>
